@@ -28,6 +28,7 @@ urlpatterns = [
     path('api/v1/accounts/', include('app_users.urls')),
     path('api/v1/shop/', include('app_shop.urls')),
     path('api/v1/auth/login', TokenObtainPairView.as_view(), name='login'),
+    path('api/v1/password_reset/', include('django_rest_passwordreset.urls', namespace='password_reset')),
     # path('api/v1/', include('.urls')),
 #   For API documentation
     path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),

@@ -7,7 +7,7 @@ from django.utils import timezone
 
 class Category(models.Model):
     name = models.CharField(max_length=123)
-    icon = models.ImageField(upload_to='images/')
+    icon = models.ImageField(upload_to='images/', blank=True)
     slug = models.SlugField(max_length=123, unique=True, default=timezone.now)
 
     class Meta:

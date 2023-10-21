@@ -24,3 +24,13 @@ class UserSerializers(serializers.ModelSerializer):
         extra_kwargs = {
             'username': {'read_only': True}
         }
+
+
+class ChangePasswordSerializer(serializers.Serializer):
+    model = User
+
+    """
+    Serializer for password change endpoint.
+    """
+    old_password = serializers.CharField(required=True)
+    new_password = serializers.CharField(required=True)
