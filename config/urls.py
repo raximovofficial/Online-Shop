@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 from django.urls import re_path
+from django.views.generic import TemplateView
 from rest_framework import permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
@@ -29,6 +30,7 @@ urlpatterns = [
     path('api/v1/shop/', include('app_shop.urls')),
     path('api/v1/auth/login', TokenObtainPairView.as_view(), name='login'),
     path('api/v1/password_reset/', include('django_rest_passwordreset.urls', namespace='password_reset')),
+    path('', TemplateView.as_view(template_name='base.html')),
     # path('api/v1/', include('.urls')),
 #   For API documentation
     path('swagger<format>/', schema_view.without_ui(cache_timeout=0), name='schema-json'),

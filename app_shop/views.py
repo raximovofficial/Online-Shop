@@ -5,8 +5,6 @@ from rest_framework.response import Response
 from rest_framework import status
 from .models import Category, Product
 from .serializers import CategorySerializer, ProductSerializer
-from rest_framework.decorators import permission_classes
-
 
 
 class SearchView(ListAPIView):
@@ -48,6 +46,7 @@ class ProductAPIView(APIView):
         products = Product.objects.all()
         serializer = ProductSerializer(products, many=True)
         return Response(serializer.data)
+
 
 class APIProductUpdateView(UpdateAPIView):
     permission_classes = (IsAuthenticated,)
